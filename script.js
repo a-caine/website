@@ -49,6 +49,18 @@ scene.add(point_light);
 scene.add( toby_sphere );
 scene.add( george_sphere );
 
+const starMaterial = new THREE.MeshBasicMaterial( {color: 0xe6dbac } );
+
+for (var i = 0; i < 200; i++) {
+	var star = new THREE.Mesh(geometry, starMaterial);
+
+	star.position.x = Math.floor(Math.random() * 1600) - 800;
+	star.position.y = Math.floor(Math.random() * 800) - 400;
+	star.position.z = Math.floor(Math.random() * 100) - 500;
+
+	scene.add(star);
+}
+
 camera.position.z = 12;
 
 const degreeToRad = (degree) => {
@@ -69,6 +81,9 @@ function animate() {
 	george_sphere.position.x = Math.sin(degreeToRad(time * 4)) * 5;
 	george_sphere.position.z = Math.cos(degreeToRad(time * 4)) * 5;
 	george_sphere.position.y = Math.sin(degreeToRad(time * 2)) * 5;
+
+	point_light.position.x = Math.sin(degreeToRad(time)) * 10;
+	point_light.position.z = Math.cos(degreeToRad(time)) * 15;
 
 	george_sphere.rotation.y += 2 * delta;
 	george_sphere.rotation.x += 0.1 * delta;
