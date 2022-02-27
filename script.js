@@ -88,7 +88,7 @@ function animate() {
 	george_sphere.rotation.y += 2 * delta;
 	george_sphere.rotation.x += 0.1 * delta;
 
-	//toby_sphere.rotation.x += delta;
+	toby_sphere.rotation.x += 0.01 * delta;
 	toby_sphere.rotation.y += 0.5 * delta;
 
 	toby_sphere.position.x += toby_sphere.position.x
